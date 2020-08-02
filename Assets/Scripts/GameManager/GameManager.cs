@@ -51,6 +51,9 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
+        //Salvar o total de moedas
+        PlayerPrefs.SetInt("TotalCurrencies", CurrencyManager.Instance.totalCurrencys + PlayerPrefs.GetInt("TotalCurrencies"));
+
         endGame = true;
         SpawnManager.Instance.spawnAble = false;
         gameTime = 0;

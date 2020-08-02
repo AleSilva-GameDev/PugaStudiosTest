@@ -278,6 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a64e8035babab4292b2c7ba4936315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textTotalCurrencies: {fileID: 1180417143}
 --- !u!4 &170374770
 Transform:
   m_ObjectHideFlags: 0
