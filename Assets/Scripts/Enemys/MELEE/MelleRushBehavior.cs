@@ -64,7 +64,7 @@ public class MelleRushBehavior : EnemysBehavior
     void ReleaseRush()
     {
         this.agent.Stop();
-        this.agent.speed = status[level - 1].movimentSpeed ;
+        this.agent.speed = enemyStatus[level - 1].movimentSpeed ;
         this.agent.acceleration = normalIncrementSpeed;
         rushOn = false;
 
@@ -79,12 +79,14 @@ public class MelleRushBehavior : EnemysBehavior
         {
             if (other.GetComponent<ShipController>())
             {
-                other.GetComponent<ShipController>().TakeDamage(status[level - 1].meleeDamage);
+                //other.GetComponent<ShipController>().TakeDamage(status[level - 1].meleeDamage);
+                other.GetComponent<ShipController>().TakeDamage(enemyStatus[level - 1].meleeDamage);
                 ReleaseRush();
             }
             else if (other.GetComponent<ShieldBehavior>())
             {
-                other.GetComponent<ShieldBehavior>().TakeDamage(status[level - 1].meleeDamage);
+                //other.GetComponent<ShieldBehavior>().TakeDamage(status[level - 1].meleeDamage);
+                other.GetComponent<ShieldBehavior>().TakeDamage(enemyStatus[level - 1].meleeDamage);
                 ReleaseRush();
             }
         }

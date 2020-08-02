@@ -1905,24 +1905,13 @@ MonoBehaviour:
   cannonsLocal: []
   energ: {fileID: 127202, guid: fa0fdfc39af142f449544999fff46a46, type: 3}
   enemyType: 0
-  status:
-  - life: 50
-    fireDamage: 0
-    bulletsToRecharg: 0
-    shieldResistence: 0
-    meleeDamage: 10
-    movimentSpeed: 10
-    fireRate: 0
-    fireRechargTime: 0
-    shieldRechargTime: 0
-    meleeAttackDelay: 0
-    meleeAttackTime: 0
-    stunTime: 0
   level: 1
   myCurrencyToDrop: 5
   MaxDistanceToDrop: 6
   lifeBar: {fileID: 0}
   type: 1
+  enemyStatus:
+  - {fileID: 11400000, guid: fe3a388c120b3b74499157c0d35f9a86, type: 2}
 --- !u!54 &-6475126379825016836
 Rigidbody:
   m_ObjectHideFlags: 0

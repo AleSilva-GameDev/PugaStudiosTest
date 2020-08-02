@@ -40,6 +40,7 @@ public class HealerBehaviour : EnemysBehavior
 
     void CalculateFireRate()
     {
-        fireDelayTime = 1 / status[level - 1].fireRate;
+        //fireDelayTime = 1 / status[level - 1].fireRate;
+        fireDelayTime = 1 / enemyStatus[level - 1].fireRate;
     }
 }

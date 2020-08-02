@@ -6,7 +6,7 @@ public class Status : MonoBehaviour
 
     [Header("Settings")]
     public ShipType myType;
-    public List<StatusLevel> allStatus;
+    //public List<StatusLevel> allStatus;
     [Range(1, 5)] public int healthLevel;
     [Range(1, 5)] public int attackLevel;
     [Range(1, 5)] public int speedLevel;
@@ -16,15 +16,20 @@ public class Status : MonoBehaviour
     protected int damage;
     public int currentLife;
 
+    [Header("Status")]
+    public List<PlayerStatus> playerStatus;
+
 
     private void Start()
     {
-        maxHealth = allStatus[healthLevel - 1].health;
+        //maxHealth = allStatus[healthLevel - 1].health;
+        maxHealth = playerStatus[healthLevel - 1].health;
     }
 
     public void TakeDamage(float applyDamage)
     {
-        allStatus[healthLevel - 1].health -= (int)applyDamage;
+        //allStatus[healthLevel - 1].health -= (int)applyDamage;
+        playerStatus[healthLevel - 1].health -= (int)applyDamage;
     }
 
 
@@ -47,17 +52,20 @@ public class Status : MonoBehaviour
     public int GetHealthHero()
     {
         if(myType == ShipType.HERO)
-            return allStatus[healthLevel - 1].health;
+            //return allStatus[healthLevel - 1].health;
+            return playerStatus[healthLevel - 1].health;
 
         return 0;
     }
 
     public int InitialHealthHero()
     {
-        return allStatus[healthLevel - 1].health;
+        //return allStatus[healthLevel - 1].health;
+        return playerStatus[healthLevel - 1].health;
     }
 }
 
+/*
 [System.Serializable]
 public class StatusLevel 
 {
@@ -65,3 +73,4 @@ public class StatusLevel
     public int attack;
     public float speed;
 }
+*/

@@ -59,9 +59,10 @@ public class TowerRangeBehavior : EnemysBehavior
     {
         currentRechargTime += Time.deltaTime * GameManager.Instance.gameTime;
 
-        if (currentRechargTime > status[level - 1].fireRechargTime)
+        //if (currentRechargTime > status[level - 1].fireRechargTime)
+        if (currentRechargTime > enemyStatus[level - 1].fireRechargTime)
         {
-            currentBulletsToRecharg = status[level - 1].bulletsToRecharg;
+            currentBulletsToRecharg = enemyStatus[level - 1].bulletsToRecharg;
             currentRechargTime = 0;
         }
     }
@@ -69,7 +70,8 @@ public class TowerRangeBehavior : EnemysBehavior
 
     void CalculateFireRate()
     {
-        fireDelayTime = 1 / status[level - 1].fireRate;
+        //fireDelayTime = 1 / status[level - 1].fireRate;
+        fireDelayTime = 1 / enemyStatus[level - 1].fireRate;
     }
 
 }

@@ -15,7 +15,8 @@ public class TowerFireBehavior : EnemysBehavior
     {
         StartStatus();
         shipTransform = GameObject.Find("AllShip").transform;
-        myFire.damage = status[level - 1].fireDamage;
+        //myFire.damage = status[level - 1].fireDamage;
+        myFire.damage = enemyStatus[level - 1].fireDamage;
     }
 
 
@@ -57,7 +58,8 @@ public class TowerFireBehavior : EnemysBehavior
     {
         currentRechargTime += Time.deltaTime * GameManager.Instance.gameTime;
 
-        if (currentRechargTime > status[level - 1].fireRechargTime) 
+        //if (currentRechargTime > status[level - 1].fireRechargTime) 
+        if (currentRechargTime > enemyStatus[level - 1].fireRechargTime) 
         {
             currentFireActiveTime = 0;    
         }

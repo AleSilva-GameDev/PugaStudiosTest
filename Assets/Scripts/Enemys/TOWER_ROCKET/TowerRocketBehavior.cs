@@ -38,8 +38,9 @@ public class TowerRocketBehavior : EnemysBehavior {
         {
             for (int i = 0; i < cannonsLocal.Length; i++)
             {
-               GameObject currentBullet = (GameObject) Instantiate(bullet, cannonsLocal[i].position, cannonsLocal[i].rotation);
-               currentBullet.GetComponent<Tower_Rocket_Bullet>().SetTowerRocketBulletStatus(status[level - 1].fireDamage, bulletRadiusToDamage, this.bulletSpeed);
+                GameObject currentBullet = (GameObject) Instantiate(bullet, cannonsLocal[i].position, cannonsLocal[i].rotation);
+                currentBullet.GetComponent<Tower_Rocket_Bullet>().SetTowerRocketBulletStatus(enemyStatus[level - 1].fireDamage, bulletRadiusToDamage, this.bulletSpeed);
+                //currentBullet.GetComponent<Tower_Rocket_Bullet>().SetTowerRocketBulletStatus(status[level - 1].fireDamage, bulletRadiusToDamage, this.bulletSpeed);
             }
 
             currentFireDelayTime = 0;
@@ -53,6 +54,7 @@ public class TowerRocketBehavior : EnemysBehavior {
 
     void CalculateFireRate()
     {
-        fireDelayTime = 1 / status[level - 1].fireRate;
+        //fireDelayTime = 1 / status[level - 1].fireRate;
+        fireDelayTime = 1 / enemyStatus[level - 1].fireRate;
     }
 }

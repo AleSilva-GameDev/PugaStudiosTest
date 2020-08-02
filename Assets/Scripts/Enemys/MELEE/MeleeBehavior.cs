@@ -52,7 +52,8 @@ public class MeleeBehavior : EnemysBehavior
 
         if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(shipTransform.position.x, shipTransform.position.z)) <= distanceToAttack && !rushOn)
         {
-            if (currentMeleeAttackTime >= status[level - 1].meleeAttackTime)
+            //if (currentMeleeAttackTime >= status[level - 1].meleeAttackTime)
+            if (currentMeleeAttackTime >= enemyStatus[level - 1].meleeAttackTime)
             {
                 AttackMelle();
             }
@@ -78,12 +79,14 @@ public class MeleeBehavior : EnemysBehavior
             if (hit[i].collider.GetComponent<ShieldBehavior>())
             {
                 ShieldBehavior shield = hit[i].collider.GetComponent<ShieldBehavior>();
-                shield.TakeDamage(status[level - 1].meleeDamage);
+                //shield.TakeDamage(status[level - 1].meleeDamage);
+                shield.TakeDamage(enemyStatus[level - 1].meleeDamage);
             }
             else if (hit[i].collider.GetComponent<ShipController>())
             {
                 ShipController ship = hit[i].collider.GetComponent<ShipController>();
-                ship.TakeDamage(status[level - 1].meleeDamage);
+                //ship.TakeDamage(status[level - 1].meleeDamage);
+                ship.TakeDamage(enemyStatus[level - 1].meleeDamage);
             }
         }
 
@@ -105,7 +108,8 @@ public class MeleeBehavior : EnemysBehavior
 
     void ReleaseRush()
     {
-        this.agent.speed = status[level - 1].movimentSpeed;
+        //this.agent.speed = status[level - 1].movimentSpeed;
+        this.agent.speed = enemyStatus[level - 1].movimentSpeed;
         this.agent.stoppingDistance = distanceToAttack - 0.2f;
         this.agent.acceleration = normalIncrementSpeed;
         rushOn = false;
@@ -118,12 +122,14 @@ public class MeleeBehavior : EnemysBehavior
         {
             if (other.GetComponent<ShipController>())
             {
-                other.GetComponent<ShipController>().TakeDamage(status[level - 1].meleeDamage);
+                other.GetComponent<ShipController>().TakeDamage(enemyStatus[level - 1].meleeDamage);
+                //other.GetComponent<ShipController>().TakeDamage(status[level - 1].meleeDamage);
                 ReleaseRush();
             }
             else if (other.GetComponent<ShieldBehavior>())
             {
-                other.GetComponent<ShieldBehavior>().TakeDamage(status[level - 1].meleeDamage);
+                other.GetComponent<ShieldBehavior>().TakeDamage(enemyStatus[level - 1].meleeDamage);
+                //other.GetComponent<ShieldBehavior>().TakeDamage(status[level - 1].meleeDamage);
                 ReleaseRush();
             }
         }

@@ -75,7 +75,8 @@ public class ShipController : Status
             }
             else
             {
-                gameObject.transform.Translate(Input.GetAxis("Horizontal") * this.allStatus[speedLevel - 1].speed * Time.deltaTime * GameManager.Instance.gameTime, 0, Input.GetAxis("Vertical") * this.allStatus[speedLevel - 1].speed * Time.deltaTime * GameManager.Instance.gameTime);
+                //gameObject.transform.Translate(Input.GetAxis("Horizontal") * this.allStatus[speedLevel - 1].speed * Time.deltaTime * GameManager.Instance.gameTime, 0, Input.GetAxis("Vertical") * this.allStatus[speedLevel - 1].speed * Time.deltaTime * GameManager.Instance.gameTime);
+                gameObject.transform.Translate(Input.GetAxis("Horizontal") * this.playerStatus[speedLevel - 1].speed * Time.deltaTime * GameManager.Instance.gameTime, 0, Input.GetAxis("Vertical") * this.playerStatus[speedLevel - 1].speed * Time.deltaTime * GameManager.Instance.gameTime);
 
                 if (inputPC)
                 {
@@ -124,7 +125,8 @@ public class ShipController : Status
                     RechargSlowMotion();
                 }
 
-                if (this.allStatus[healthLevel - 1].health <= 0)
+                //if (this.allStatus[healthLevel - 1].health <= 0)
+                if (this.playerStatus[healthLevel - 1].health <= 0)
                 {
                     EnebleMesh(false);
                     GameManager.Instance.EndGame();
@@ -136,7 +138,8 @@ public class ShipController : Status
 
     void SetDamage()
     {
-        damage = this.allStatus[attackLevel - 1].attack * 1;
+        //damage = this.allStatus[attackLevel - 1].attack * 1;
+        damage = this.playerStatus[attackLevel - 1].attack * 1;
     }
 
 

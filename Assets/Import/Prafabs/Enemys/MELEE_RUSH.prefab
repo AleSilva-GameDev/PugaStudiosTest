@@ -306,24 +306,13 @@ MonoBehaviour:
   cannonsLocal: []
   energ: {fileID: 127202, guid: fa0fdfc39af142f449544999fff46a46, type: 3}
   enemyType: 2
-  status:
-  - life: 50
-    fireDamage: 0
-    bulletsToRecharg: 0
-    shieldResistence: 0
-    meleeDamage: 25
-    movimentSpeed: 5
-    fireRate: 0
-    fireRechargTime: 0
-    shieldRechargTime: 0
-    meleeAttackDelay: 0
-    meleeAttackTime: 2
-    stunTime: 0
   level: 1
   myCurrencyToDrop: 5
   MaxDistanceToDrop: 6
   lifeBar: {fileID: 202070261276890223}
   type: 1
+  enemyStatus:
+  - {fileID: 11400000, guid: a790318fb16ffb14698fea721e5ed2f6, type: 2}
   maxTargets: 3
   rushSpeed: 80
   rushDistance: 15

@@ -16,7 +16,8 @@ public class StaticMoveBehavior : Status
 
     void Start()
     {
-        damage = this.allStatus[attackLevel - 1].attack * 2;
+        //damage = this.allStatus[attackLevel - 1].attack * 2;
+        damage = this.playerStatus[attackLevel - 1].attack * 2;
     }
 
 
@@ -29,7 +30,8 @@ public class StaticMoveBehavior : Status
             Move();
         }
 
-        if (this.allStatus[healthLevel - 1].health <= 0)
+        //if (this.allStatus[healthLevel - 1].health <= 0)
+        if (this.playerStatus[healthLevel - 1].health <= 0)
         {
             isAble = false;
             CheckMoney();
@@ -43,7 +45,8 @@ public class StaticMoveBehavior : Status
     {
 
         //   gameObject.transform.Translate((currentShip.transform.position.x - transform.position.x) * this.speed * Time.deltaTime * GameManager.Instance.gameTime, 0, (currentShip.transform.position.z - transform.position.z) * this.speed * Time.deltaTime * GameManager.Instance.gameTime);
-        gameObject.transform.position = Vector3.LerpUnclamped(transform.position, currentShip.transform.position, -(this.allStatus[speedLevel - 1].speed - (Vector3.Distance(currentShip.transform.position, transform.position))) * Time.deltaTime * GameManager.Instance.gameTime);
+        //gameObject.transform.position = Vector3.LerpUnclamped(transform.position, currentShip.transform.position, -(this.allStatus[speedLevel - 1].speed - (Vector3.Distance(currentShip.transform.position, transform.position))) * Time.deltaTime * GameManager.Instance.gameTime);
+        gameObject.transform.position = Vector3.LerpUnclamped(transform.position, currentShip.transform.position, -(this.playerStatus[speedLevel - 1].speed - (Vector3.Distance(currentShip.transform.position, transform.position))) * Time.deltaTime * GameManager.Instance.gameTime);
     }
 
 

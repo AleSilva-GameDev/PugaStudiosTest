@@ -31,7 +31,8 @@ public class MeleeStunBehavior : EnemysBehavior {
 
         if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(shipTransform.position.x, shipTransform.position.z)) <= distanceToAttack)
         {
-            if (currentMeleeAttackTime >= status[level - 1].meleeAttackTime)
+            //if (currentMeleeAttackTime >= status[level - 1].meleeAttackTime)
+            if (currentMeleeAttackTime >= enemyStatus[level - 1].meleeAttackTime)
             {
                 AttackMelle();
             }
@@ -56,13 +57,16 @@ public class MeleeStunBehavior : EnemysBehavior {
             if (hit[i].collider.GetComponent<ShieldBehavior>())
             {
                 ShieldBehavior shield = hit[i].collider.GetComponent<ShieldBehavior>();
-                shield.TakeDamage(status[level - 1].meleeDamage);
+                //shield.TakeDamage(status[level - 1].meleeDamage);
+                shield.TakeDamage(enemyStatus[level - 1].meleeDamage);
             }
             else if (hit[i].collider.GetComponent<ShipController>())
             {
                 ShipController ship = hit[i].collider.GetComponent<ShipController>();
-                ship.TakeDamage(status[level - 1].meleeDamage);
-                ship.EnableStun(status[level -1].stunTime);
+                //ship.TakeDamage(status[level - 1].meleeDamage);
+                ship.TakeDamage(enemyStatus[level - 1].meleeDamage);
+                //ship.EnableStun(status[level -1].stunTime);
+                ship.EnableStun(enemyStatus[level -1].stunTime);
             }
         }
 

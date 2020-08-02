@@ -88,24 +88,13 @@ MonoBehaviour:
   - {fileID: 410704}
   energ: {fileID: 127202, guid: fa0fdfc39af142f449544999fff46a46, type: 3}
   enemyType: 5
-  status:
-  - life: 50
-    fireDamage: 0
-    bulletsToRecharg: 0
-    shieldResistence: 0
-    meleeDamage: 5
-    movimentSpeed: 10
-    fireRate: 0
-    fireRechargTime: 0
-    shieldRechargTime: 0
-    meleeAttackDelay: 0
-    meleeAttackTime: 2
-    stunTime: 1
   level: 1
   myCurrencyToDrop: 5
   MaxDistanceToDrop: 6
   lifeBar: {fileID: 3384355829549406799}
   type: 1
+  enemyStatus:
+  - {fileID: 11400000, guid: 376fb7013c4ec3440bcae4825cd9fc72, type: 2}
   distanceToAttack: 4.2
   maxAttackDistance: 4
   maxTargets: 2

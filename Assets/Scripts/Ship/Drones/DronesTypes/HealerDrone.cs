@@ -17,7 +17,8 @@ public class HealerDrone : DroneBehavior
 
     void Start()
     {
-        maxHealth = currentShip.allStatus[currentShip.healthLevel - 1].health;
+        //maxHealth = currentShip.allStatus[currentShip.healthLevel - 1].health;
+        maxHealth = currentShip.playerStatus[currentShip.healthLevel - 1].health;
         currentTimeToRestore = status[level - 1].delayTimeToRestore;
     }
 
@@ -35,9 +36,11 @@ public class HealerDrone : DroneBehavior
 
     void RestoreHealth()
     {
-        if (currentShip.allStatus[currentShip.healthLevel - 1].health + status[level - 1].healthValueToRestore <= maxHealth)
+        //if (currentShip.allStatus[currentShip.healthLevel - 1].health + status[level - 1].healthValueToRestore <= maxHealth)
+        if (currentShip.playerStatus[currentShip.healthLevel - 1].health + status[level - 1].healthValueToRestore <= maxHealth)
         {
-            currentShip.allStatus[currentShip.healthLevel - 1].health += status[level - 1].healthValueToRestore;
+            //currentShip.allStatus[currentShip.healthLevel - 1].health += status[level - 1].healthValueToRestore;
+            currentShip.playerStatus[currentShip.healthLevel - 1].health += status[level - 1].healthValueToRestore;
             currentTimeToRestore = 0;
         }
     }

@@ -35,7 +35,8 @@ public class MeleeRangerBehavior : EnemysBehavior {
         {
             if (Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(shipTransform.position.x, shipTransform.position.z)) <= distanceToAttack)
             {
-                if (currentMeleeAttackTime >= status[level - 1].meleeAttackTime)
+                //if (currentMeleeAttackTime >= status[level - 1].meleeAttackTime)
+                if (currentMeleeAttackTime >= enemyStatus[level - 1].meleeAttackTime)
                 {
                     inAttack = true;
                 }
@@ -48,7 +49,8 @@ public class MeleeRangerBehavior : EnemysBehavior {
         else 
         {
             currentMelleAttackDelay += Time.deltaTime * GameManager.Instance.gameTime;
-            if (currentMelleAttackDelay > status[level - 1].meleeAttackDelay) 
+            //if (currentMelleAttackDelay > status[level - 1].meleeAttackDelay) 
+            if (currentMelleAttackDelay > enemyStatus[level - 1].meleeAttackDelay) 
             {
                 AttackMeleeRange();
             }
@@ -67,12 +69,14 @@ public class MeleeRangerBehavior : EnemysBehavior {
             if (hit[i].collider.GetComponent<ShieldBehavior>())
             {
                 ShieldBehavior shield = hit[i].collider.GetComponent<ShieldBehavior>();
-                shield.TakeDamage(status[level - 1].meleeDamage);
+                //shield.TakeDamage(status[level - 1].meleeDamage);
+                shield.TakeDamage(enemyStatus[level - 1].meleeDamage);
             }
             else if (hit[i].collider.GetComponent<ShipController>())
             {
                 ShipController ship = hit[i].collider.GetComponent<ShipController>();
-                ship.TakeDamage(status[level - 1].meleeDamage);
+                //ship.TakeDamage(status[level - 1].meleeDamage);
+                ship.TakeDamage(enemyStatus[level - 1].meleeDamage);
             }
         }
 

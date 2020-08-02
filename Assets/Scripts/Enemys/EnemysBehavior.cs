@@ -11,7 +11,7 @@ public class EnemysBehavior : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] EnemysType enemyType;
-    [SerializeField] protected List<EnemysStatus> status;
+    //[SerializeField] protected List<EnemysStatus> status;
     [SerializeField] protected int level = 1;
     [SerializeField] protected int myCurrencyToDrop;
     [SerializeField] protected float MaxDistanceToDrop;
@@ -26,8 +26,39 @@ public class EnemysBehavior : MonoBehaviour
     protected float currentRechargTime, currentShieldRechargTime, currentMelleAttackDelay, currentMeleeAttackTime, currentFireDelayTime, fireDelayTime;
     protected bool walk, fire, rechargFire, meleeAttack, rangeAttack, suicide, playerToTarget, shield, rechargShield, stun;
 
-    
+    [Header("Status")]
+    public List<EnemyStatus> enemyStatus;
 
+    protected void StartStatus()
+    {
+        if (GetComponent<UnityEngine.AI.NavMeshAgent>())
+            agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+
+        //Level
+        this.level = enemyStatus[level - 1].level;
+
+        //Bools
+        walk = enemyStatus[level - 1].walk;
+        fire = enemyStatus[level - 1].fire;
+        rechargFire = enemyStatus[level - 1].rechargFire;
+        meleeAttack = enemyStatus[level - 1].meleeAttack;
+        rangeAttack = enemyStatus[level - 1].rangeAttack;
+        suicide = enemyStatus[level - 1].suicide;
+        playerToTarget = enemyStatus[level - 1].playerToTarget;
+        shield = enemyStatus[level - 1].shield;
+        rechargShield = enemyStatus[level - 1].rechargShield;
+        stun = enemyStatus[level - 1].stun;
+
+        //Int
+        currentLife = enemyStatus[level - 1].life;
+        currentBulletsToRecharg = enemyStatus[level - 1].bulletsToRecharg;
+
+
+        UpdateUI();
+    }
+
+    #region  StartStatus - Antigo
+    /*- Essa parte será modificada por um Scriptable Object
     protected void StartStatus()
     {
         level = Mathf.Clamp(level, 1, status.Count);
@@ -248,8 +279,8 @@ public class EnemysBehavior : MonoBehaviour
 
                 break;
         }
-    }
-
+    }*/
+    #endregion
 
     protected void MoveToShip()
     {
@@ -259,7 +290,8 @@ public class EnemysBehavior : MonoBehaviour
 
     protected void UpdateMovimenteSpeed()
     {
-        agent.speed = status[level - 1].movimentSpeed * GameManager.Instance.gameTime;
+        //agent.speed = status[level - 1].movimentSpeed * GameManager.Instance.gameTime;
+        agent.speed = enemyStatus[level - 1].movimentSpeed * GameManager.Instance.gameTime;
     }
 
 
@@ -344,24 +376,27 @@ public class EnemysBehavior : MonoBehaviour
     {
         if(lifeBar != null)
         {
-            lifeBar.fillAmount = (float)currentLife / (float)status[level - 1].life;
+            //lifeBar.fillAmount = (float)currentLife / (float)status[level - 1].life;
+            lifeBar.fillAmount = (float)currentLife / (float)enemyStatus[level - 1].life;
         }
         
     }
 
     public void RechargeLife()
     {
-        currentLife = status[level - 1].life;
+        //currentLife = status[level - 1].life;
+        currentLife = enemyStatus[level - 1].life;
         UpdateUI();
     }
 }
 
-
-[System.Serializable]
+/*
 public class EnemysStatus
 {
     public int life, fireDamage, bulletsToRecharg, shieldResistence, meleeDamage;
     public float movimentSpeed, fireRate, fireRechargTime, shieldRechargTime, meleeAttackDelay, meleeAttackTime, stunTime;
 }
+*/
+
 
 
