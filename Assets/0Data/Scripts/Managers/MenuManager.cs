@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] Text textTotalCurrencies;
+    [SerializeField] GameObject panelChooseCharacter;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,11 @@ public class MenuManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ActivePanelChooseCharacter(bool activePanel)
+    {
+        panelChooseCharacter.SetActive(activePanel);
     }
 
     public void GoToGame()

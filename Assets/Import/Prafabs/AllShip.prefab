@@ -91,12 +91,12 @@ MonoBehaviour:
   center: {fileID: 130226}
   thisDroneType: 3
   orbitSpeed: 50
-  myShip: {fileID: 0}
+  myShip: {fileID: 11428056}
   cannonLocalSpawn: {fileID: 164830}
-  bullet: 1
+  bullet: 0
   status:
   - droneDamage: 1
-    shootForSeconds: 0.5
+    shootForSeconds: 2
     radiusLocalToDamage: 2
   - droneDamage: 3
     shootForSeconds: 1
@@ -105,6 +105,7 @@ MonoBehaviour:
     shootForSeconds: 1.5
     radiusLocalToDamage: 6
   level: 1
+  enemys: []
 --- !u!1 &107828
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,6 +177,7 @@ MonoBehaviour:
   shieldSizeLevel: 1
   shieldResistenceLevel: 1
   shieldReloadLevel: 1
+  isAble: 1
 --- !u!135 &13524386
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -560,7 +562,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &407628
 Transform:
   m_ObjectHideFlags: 0
@@ -1094,7 +1096,7 @@ MonoBehaviour:
   currentShip: {fileID: 11428056}
   status:
   - healthValueToRestore: 10
-    delayTimeToRestore: 10
+    delayTimeToRestore: 5
   - healthValueToRestore: 30
     delayTimeToRestore: 7.5
   - healthValueToRestore: 50
@@ -1409,6 +1411,7 @@ MonoBehaviour:
   shieldSizeLevel: 1
   shieldResistenceLevel: 1
   shieldReloadLevel: 1
+  isAble: 1
 --- !u!1 &137668
 GameObject:
   m_ObjectHideFlags: 0
@@ -2225,11 +2228,11 @@ MonoBehaviour:
   center: {fileID: 130226}
   thisDroneType: 0
   orbitSpeed: 70
-  myShip: {fileID: 0}
+  myShip: {fileID: 11428056}
   cannonLocalSpawn: {fileID: 147090}
   bullet: 0
   status:
-  - droneDamage: 0
+  - droneDamage: 5
     shootForSeconds: 1
   - droneDamage: 0
     shootForSeconds: 2
@@ -8000,25 +8003,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myType: 0
-  allStatus:
-  - health: 50
-    attack: 5
-    speed: 5
-  - health: 100
-    attack: 10
-    speed: 6
-  - health: 150
-    attack: 30
-    speed: 7
-  - health: 200
-    attack: 20
-    speed: 8
-  - health: 250
-    attack: 25
-    speed: 9
-  healthLevel: 5
+  healthLevel: 1
   attackLevel: 5
   speedLevel: 5
+  maxHealth: 0
+  currentLife: 0
+  playerStatus:
+  - {fileID: 11400000, guid: d64e5adca9fc53744821ac4c6d87491c, type: 2}
+  - {fileID: 11400000, guid: f9a25fe577858684290897fb76ca19da, type: 2}
+  - {fileID: 11400000, guid: b35556f814387f14b9f1f79a37ba5e5f, type: 2}
+  - {fileID: 11400000, guid: e6bda117615b2f846a1ed212367d1869, type: 2}
+  - {fileID: 11400000, guid: d2f98c05a4253714482e2a22cc3ba46d, type: 2}
   shield: {fileID: 152826}
   cannon: {fileID: 137668}
   cannonLocalSpawn: {fileID: 167980}
@@ -8039,7 +8034,7 @@ MonoBehaviour:
   - {fileID: 129578}
   - {fileID: 143278}
   - {fileID: 150530}
-  inputPC: 0
+  inputPC: 1
   smoothRotateShield: 0
   shieldSpeedToSmoothRotation: 90
   angleToRotateShield: 45
@@ -8047,8 +8042,8 @@ MonoBehaviour:
   delayInputTimeToRotateShield: 0.3
   shootForSeconds: 6
   bullet: 0
-  mySecondaryCannonType: 0
-  myDroneType: 1
+  mySecondaryCannonType: 3
+  myDroneType: 3
   mana:
   - ManaTotal: 3
   - ManaTotal: 4

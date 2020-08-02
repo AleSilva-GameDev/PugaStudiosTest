@@ -37,7 +37,7 @@ public class ShipController : Status
     float currentStunTime;
     float stunTime;
     float currentTimeToRotateShield;
-    [HideInInspector] public Vector3 targetToShoot;
+    public Vector3 targetToShoot;
     float timeToShoot;
     float currentTimeToShoot;
     SecondaryCannon currentCannon;
@@ -50,6 +50,10 @@ public class ShipController : Status
 
     void Start()
     {
+        //Habilitando canhão e drone
+        mySecondaryCannonType = (SecondaryCannonType)ChooseCharacterController.indexCannon;
+        myDroneType = (DroneType)ChooseCharacterController.indexDrone;
+
         SetShootRate();
         SetDamage();
         SetCurrentSecondaryCannon(mySecondaryCannonType);
@@ -386,7 +390,6 @@ public class ShipController : Status
         }
     }
 
-
     public void EnableStun(float newStunTime)
     {
         if (newStunTime > stunTime)
@@ -398,6 +401,7 @@ public class ShipController : Status
         inStun = true;
 
     }
+
 }
 
 [System.Serializable]

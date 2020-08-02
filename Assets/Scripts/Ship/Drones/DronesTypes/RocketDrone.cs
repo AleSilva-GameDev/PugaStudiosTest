@@ -14,7 +14,7 @@ public class RocketDrone : DroneBehavior
 
     [Header("Behaviour")]
     GameObject target;
-    List<GameObject> enemys;
+    [SerializeField] List<GameObject> enemys;
     float TimeToShoot;
     float currentTimeToShoot;
 
@@ -26,7 +26,7 @@ public class RocketDrone : DroneBehavior
     }
 
 
-    void Update()
+    void LateUpdate()
     {
         currentTimeToShoot += Time.deltaTime * GameManager.Instance.gameTime;
         UpdateTarget();
@@ -36,7 +36,6 @@ public class RocketDrone : DroneBehavior
 
     void UpdateTarget()
     {
-
         if (enemys.Count > 0)
         {
             List<GameObject> EnemysToRemove = new List<GameObject>();

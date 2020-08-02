@@ -38,9 +38,9 @@ public enum SecondaryCannonType
 
 public enum DroneType 
 { 
-    Attack, 
-    Magnetic, 
-    Healer, 
+    Attack,
+    Healer,
+    Magnetic,
     Rocket, 
     none 
 }

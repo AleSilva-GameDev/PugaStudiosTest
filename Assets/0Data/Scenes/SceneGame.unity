@@ -424,9 +424,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 135402, guid: 660c60732ed6f7b45a7c62d67a994265, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 183900, guid: 660c60732ed6f7b45a7c62d67a994265, type: 3}
+      propertyPath: m_Name
+      value: AllShip
       objectReference: {fileID: 0}
     - target: {fileID: 449138, guid: 660c60732ed6f7b45a7c62d67a994265, type: 3}
       propertyPath: m_LocalPosition.x
@@ -460,51 +460,30 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 11428056, guid: 660c60732ed6f7b45a7c62d67a994265, type: 3}
-      propertyPath: playerStatus.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11428056, guid: 660c60732ed6f7b45a7c62d67a994265, type: 3}
-      propertyPath: inputPC
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11428056, guid: 660c60732ed6f7b45a7c62d67a994265, type: 3}
-      propertyPath: currentSpecialAble
+    - target: {fileID: 449138, guid: 660c60732ed6f7b45a7c62d67a994265, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 449138, guid: 660c60732ed6f7b45a7c62d67a994265, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 449138, guid: 660c60732ed6f7b45a7c62d67a994265, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428056, guid: 660c60732ed6f7b45a7c62d67a994265, type: 3}
+      propertyPath: myDroneType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11428056, guid: 660c60732ed6f7b45a7c62d67a994265, type: 3}
       propertyPath: healthLevel
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11428056, guid: 660c60732ed6f7b45a7c62d67a994265, type: 3}
-      propertyPath: allStatus.Array.data[4].health
-      value: 5000
+      propertyPath: mySecondaryCannonType
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11428056, guid: 660c60732ed6f7b45a7c62d67a994265, type: 3}
-      propertyPath: playerStatus.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: d64e5adca9fc53744821ac4c6d87491c,
-        type: 2}
-    - target: {fileID: 11428056, guid: 660c60732ed6f7b45a7c62d67a994265, type: 3}
-      propertyPath: playerStatus.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: f9a25fe577858684290897fb76ca19da,
-        type: 2}
-    - target: {fileID: 11428056, guid: 660c60732ed6f7b45a7c62d67a994265, type: 3}
-      propertyPath: playerStatus.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: b35556f814387f14b9f1f79a37ba5e5f,
-        type: 2}
-    - target: {fileID: 11428056, guid: 660c60732ed6f7b45a7c62d67a994265, type: 3}
-      propertyPath: playerStatus.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: e6bda117615b2f846a1ed212367d1869,
-        type: 2}
-    - target: {fileID: 11428056, guid: 660c60732ed6f7b45a7c62d67a994265, type: 3}
-      propertyPath: playerStatus.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: d2f98c05a4253714482e2a22cc3ba46d,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 660c60732ed6f7b45a7c62d67a994265, type: 3}
 --- !u!1 &460020755
@@ -1230,7 +1209,7 @@ MonoBehaviour:
   ship: {fileID: 1413069179}
   gameTime: 1
   endGame: 0
-  timeStartGame: 20
+  timeStartGame: 60
   timeGame: 0
   panelGameLose: {fileID: 1910650316}
   panelGameWin: {fileID: 159057182}
