@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &159057183
 RectTransform:
   m_ObjectHideFlags: 0
@@ -389,10 +389,11 @@ MonoBehaviour:
   - {fileID: 135862, guid: 03e6f3070a8506445aede358d65c2455, type: 3}
   - {fileID: 175958, guid: c47b7c71c769554418ebc58f1676259b, type: 3}
   - {fileID: 148386, guid: 0738399fcbc0bc14f915395298a077f8, type: 3}
+  - {fileID: 6898564472155708181, guid: 3482e1026d168e74db02e3a4156ab995, type: 3}
   PointToSpawn: {fileID: 2016244736}
   pivotPoint: {fileID: 1582755340}
   maxRadius: 35
-  heightToSpawn: 0
+  heightToSpawn: 1
   maxEnemys: 10
   delayTimeToSpawn: 0.3
   ignoreTag:
@@ -423,6 +424,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 135402, guid: 660c60732ed6f7b45a7c62d67a994265, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 449138, guid: 660c60732ed6f7b45a7c62d67a994265, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -465,7 +470,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11428056, guid: 660c60732ed6f7b45a7c62d67a994265, type: 3}
       propertyPath: healthLevel
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428056, guid: 660c60732ed6f7b45a7c62d67a994265, type: 3}
+      propertyPath: allStatus.Array.data[4].health
+      value: 5000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 660c60732ed6f7b45a7c62d67a994265, type: 3}
@@ -1192,7 +1201,7 @@ MonoBehaviour:
   ship: {fileID: 1413069179}
   gameTime: 1
   endGame: 0
-  timeStartGame: 30
+  timeStartGame: 3000
   timeGame: 0
   panelGameLose: {fileID: 1910650316}
   panelGameWin: {fileID: 159057182}

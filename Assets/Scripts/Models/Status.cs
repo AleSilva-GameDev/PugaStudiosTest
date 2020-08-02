@@ -14,7 +14,7 @@ public class Status : MonoBehaviour
 
     [Header("Behaviour")]
     protected int damage;
-    protected int currentLife;
+    public int currentLife;
 
 
     private void Start()

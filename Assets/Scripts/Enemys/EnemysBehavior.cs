@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class EnemysBehavior : MonoBehaviour
@@ -15,13 +16,17 @@ public class EnemysBehavior : MonoBehaviour
     [SerializeField] protected int myCurrencyToDrop;
     [SerializeField] protected float MaxDistanceToDrop;
 
+    [Header("UI")]
+    [SerializeField] Image lifeBar;
+
     [Header("Behaviour")]
-    [HideInInspector] public ShipType type = ShipType.ENEMY;
+    public ShipType type = ShipType.ENEMY;
     protected UnityEngine.AI.NavMeshAgent agent;
     protected int currentLife, currentBulletsToRecharg;
     protected float currentRechargTime, currentShieldRechargTime, currentMelleAttackDelay, currentMeleeAttackTime, currentFireDelayTime, fireDelayTime;
     protected bool walk, fire, rechargFire, meleeAttack, rangeAttack, suicide, playerToTarget, shield, rechargShield, stun;
 
+    
 
     protected void StartStatus()
     {
@@ -29,6 +34,8 @@ public class EnemysBehavior : MonoBehaviour
         currentLife = status[level - 1].life;
         currentRechargTime = currentShieldRechargTime = currentMelleAttackDelay = currentMeleeAttackTime = currentFireDelayTime = 0;
         currentBulletsToRecharg = status[level - 1].bulletsToRecharg;
+
+        UpdateUI();
 
         if (GetComponent<UnityEngine.AI.NavMeshAgent>())
             agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -218,6 +225,28 @@ public class EnemysBehavior : MonoBehaviour
                 status[level - 1].stunTime = 0;
 
                 break;
+            case EnemysType.HEALER:
+                walk = false;
+                fire = true;
+                rechargFire = true;
+                meleeAttack = false;
+                rangeAttack = true;
+                suicide = false;
+                playerToTarget = true;
+                shield = true;
+                rechargShield = false;
+                stun = false;
+
+                status[level - 1].movimentSpeed = 0;
+                status[level - 1].fireRechargTime = 0;
+                status[level - 1].bulletsToRecharg = 0;
+                status[level - 1].meleeDamage = 0;
+                status[level - 1].meleeAttackTime = 0;
+                status[level - 1].meleeAttackDelay = 0;
+                status[level - 1].shieldRechargTime = 0;
+                status[level - 1].stunTime = 0;
+
+                break;
         }
     }
 
@@ -244,6 +273,7 @@ public class EnemysBehavior : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentLife -= damage;
+        UpdateUI();
 
         if (currentLife <= 0)
         {
@@ -309,6 +339,21 @@ public class EnemysBehavior : MonoBehaviour
             coin.GetComponent<CurrencyBehaviour>().SetValue(restValue);
         }
     }
+
+    public void UpdateUI()
+    {
+        if(lifeBar != null)
+        {
+            lifeBar.fillAmount = (float)currentLife / (float)status[level - 1].life;
+        }
+        
+    }
+
+    public void RechargeLife()
+    {
+        currentLife = status[level - 1].life;
+        UpdateUI();
+    }
 }
 
 
@@ -318,3 +363,5 @@ public class EnemysStatus
     public int life, fireDamage, bulletsToRecharg, shieldResistence, meleeDamage;
     public float movimentSpeed, fireRate, fireRechargTime, shieldRechargTime, meleeAttackDelay, meleeAttackTime, stunTime;
 }
+
+

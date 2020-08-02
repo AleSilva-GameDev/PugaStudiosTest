@@ -28,6 +28,7 @@ public class MeleeBehavior : EnemysBehavior
 
     void Update()
     {
+        UpdateUI();
         MoveMelle();
     }
 

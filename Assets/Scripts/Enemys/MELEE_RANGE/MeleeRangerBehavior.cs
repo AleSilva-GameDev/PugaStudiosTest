@@ -22,6 +22,7 @@ public class MeleeRangerBehavior : EnemysBehavior {
 
     void Update()
     {
+        UpdateUI();
         MoveMelle();
     }
 

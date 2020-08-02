@@ -216,6 +216,7 @@ public class ShipController : Status
 
     void Shoot()
     {
+        
         if (currentTimeToShoot > timeToShoot)
         {
             GameObject currentBullet = InstanceManager.Instance.InstanceBullet(bullet, cannonLocalSpawn.transform.position, cannonLocalSpawn.transform.rotation);

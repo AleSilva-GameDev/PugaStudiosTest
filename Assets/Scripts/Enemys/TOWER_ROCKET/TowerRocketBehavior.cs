@@ -19,7 +19,9 @@ public class TowerRocketBehavior : EnemysBehavior {
 	}
 	
 
-	void Update () {
+	void Update () 
+    {
+
         currentDistanceToAttack = Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(shipTransform.position.x, shipTransform.position.z));
 
         if (currentDistanceToAttack < distanceToAttack)

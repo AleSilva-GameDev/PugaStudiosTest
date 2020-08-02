@@ -8,7 +8,7 @@ public class BulletBehavior : Bullet
 
     [Header("Behaviour")]
     int currentTargets;
-    ShipType originType;
+    [SerializeField] ShipType originType;
     [HideInInspector] public int damage;
 
 
@@ -63,7 +63,8 @@ public class BulletBehavior : Bullet
                     currentTargets++;
                     CheckDead();
                 }
-            }else if(other.GetComponent<EnemysBehavior>() && originType == ShipType.HERO)
+            }
+            else if(other.GetComponent<EnemysBehavior>() && originType == ShipType.HERO)
             {
                 other.GetComponent<EnemysBehavior>().TakeDamage(this.damage);
                 currentTargets++;
