@@ -15,7 +15,7 @@ public class ShieldBehavior : MonoBehaviour
 
     [Header("Behaviour")]
     Collider myCollider;
-    bool isAble = true;
+    public bool isAble = true;
     int currentShielResistence;
     float currentTime;
 
@@ -50,12 +50,17 @@ public class ShieldBehavior : MonoBehaviour
 
         if (currentTime >= status[shieldReloadLevel - 1].shieldReload)
         {
-            isAble = true;
-            currentShielResistence = status[shieldResistenceLevel - 1].shieldResistence;
-            foreach (GameObject ob in myMesh)
-                ob.SetActive(true);
-            this.myCollider.enabled = true;
+            AbleShield();
         }
+    }
+
+    public void AbleShield()
+    {
+        isAble = true;
+        currentShielResistence = status[shieldResistenceLevel - 1].shieldResistence;
+        foreach (GameObject ob in myMesh)
+            ob.SetActive(true);
+        this.myCollider.enabled = true;
     }
 
 

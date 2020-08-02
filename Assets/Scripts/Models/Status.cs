@@ -19,17 +19,21 @@ public class Status : MonoBehaviour
     [Header("Status")]
     public List<PlayerStatus> playerStatus;
 
+    private void Awake()
+    {
+        maxHealth = playerStatus[healthLevel - 1].health;
+        currentLife = playerStatus[healthLevel - 1].health;
+    }
 
     private void Start()
     {
         //maxHealth = allStatus[healthLevel - 1].health;
-        maxHealth = playerStatus[healthLevel - 1].health;
     }
 
     public void TakeDamage(float applyDamage)
     {
         //allStatus[healthLevel - 1].health -= (int)applyDamage;
-        playerStatus[healthLevel - 1].health -= (int)applyDamage;
+        currentLife -= (int)applyDamage;
     }
 
 
@@ -49,20 +53,16 @@ public class Status : MonoBehaviour
         }
     }
 
-    public int GetHealthHero()
+    public int GetCurrentHealthHero()
     {
         if(myType == ShipType.HERO)
             //return allStatus[healthLevel - 1].health;
-            return playerStatus[healthLevel - 1].health;
+            return currentLife;
 
         return 0;
     }
 
-    public int InitialHealthHero()
-    {
-        //return allStatus[healthLevel - 1].health;
-        return playerStatus[healthLevel - 1].health;
-    }
+    
 }
 
 /*

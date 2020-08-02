@@ -34,9 +34,9 @@ public class GameManager : MonoBehaviour
         status = FindObjectOfType<Status>();
 
         timeGame = timeStartGame;
-        DesactiveAllPanels();
+        //RestartGame();
 
-        status.maxHealth = status.GetHealthHero();
+        status.maxHealth = status.GetCurrentHealthHero();
     }
 
 
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         SpawnManager.Instance.spawnAble = false;
         gameTime = 0;
         
-        if(status.GetHealthHero() > 0)
+        if(status.GetCurrentHealthHero() > 0)
         {
             panelGameWin.SetActive(true);
         }
@@ -77,7 +77,8 @@ public class GameManager : MonoBehaviour
         ship.transform.position = new Vector3(pivotToRestart.position.x, ship.transform.position.y, pivotToRestart.position.z);
         //Definir vida inicial do player quando o jogo reiniciar
         //ship.GetComponent<ShipController>().allStatus[ship.GetComponent<ShipController>().healthLevel - 1].health = status.maxHealth;
-        ship.GetComponent<ShipController>().playerStatus[ship.GetComponent<ShipController>().healthLevel - 1].health = status.maxHealth;
+        ship.GetComponent<ShipController>().currentLife = status.maxHealth;
+        ship.GetComponentInChildren<ShieldBehavior>().AbleShield();
         ship.GetComponent<ShipController>().EnebleMesh(true);
         SpawnManager.Instance.DestroyerAllEnemy();
         SpawnManager.Instance.spawnAble = true;
@@ -93,6 +94,7 @@ public class GameManager : MonoBehaviour
         // Resatar o tempo
         timeGame = timeStartGame;
     }
+    
 
     void UpdateTimeGame()
     {
@@ -112,6 +114,7 @@ public class GameManager : MonoBehaviour
 
     public void GoToMenu()
     {
+        RestartGame();
         SceneManager.LoadScene("SceneMenu");
     }
 }

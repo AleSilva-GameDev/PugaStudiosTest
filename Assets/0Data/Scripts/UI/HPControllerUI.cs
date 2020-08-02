@@ -16,11 +16,11 @@ public class HPControllerUI : MonoBehaviour
         //Setup properties
         status = FindObjectOfType<Status>();
         hpBar = GetComponent<Slider>();
-        hpBar.maxValue = status.GetHealthHero();
+        hpBar.maxValue = status.GetCurrentHealthHero();
 
         //Start setup
         //Definir vida máxima no início do game
-        hpBar.value = status.GetHealthHero();
+        hpBar.value = status.GetCurrentHealthHero();
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class HPControllerUI : MonoBehaviour
 
     void UpdateLifeBarUI()
     {
-        hpBar.value = status.GetHealthHero();
+        hpBar.value = status.GetCurrentHealthHero();
         textHp.text = hpBar.value.ToString();
     }
 }
