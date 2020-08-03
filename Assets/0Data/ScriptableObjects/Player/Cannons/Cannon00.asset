@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: fadfed3d353f3104d92f358cb00ca663, type: 3}
   name: Cannon 00
-  description: This cannon shoot at an angle of 0 degrees
+  description: This cannon shoot at an angle of 0 degrees.

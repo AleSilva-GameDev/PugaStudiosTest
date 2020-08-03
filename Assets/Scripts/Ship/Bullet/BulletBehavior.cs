@@ -66,7 +66,7 @@ public class BulletBehavior : Bullet
             }
             else if(other.GetComponent<EnemysBehavior>() && originType == ShipType.HERO)
             {
-                other.GetComponent<EnemysBehavior>().TakeDamage(this.damage);
+                other.GetComponent<EnemysBehavior>().TakeDamage(damage);
                 currentTargets++;
                 CheckDead();
             }

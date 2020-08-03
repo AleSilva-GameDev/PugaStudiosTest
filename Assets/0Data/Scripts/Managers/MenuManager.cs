@@ -12,6 +12,7 @@ public class MenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        panelChooseCharacter.SetActive(false);
         textTotalCurrencies.text = "Total Coins: " + PlayerPrefs.GetInt("TotalCurrencies");
     }
 

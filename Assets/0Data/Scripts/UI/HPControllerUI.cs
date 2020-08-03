@@ -9,6 +9,7 @@ public class HPControllerUI : MonoBehaviour
 
     Slider hpBar;
     [SerializeField] Text textHp;
+    [SerializeField] Image fill;
 
     // Start is called before the first frame update
     void Start()
@@ -33,5 +34,20 @@ public class HPControllerUI : MonoBehaviour
     {
         hpBar.value = status.GetCurrentHealthHero();
         textHp.text = hpBar.value.ToString();
+
+        float percentBarLife = hpBar.value / hpBar.maxValue;
+
+        if(percentBarLife >= 0.7f)
+        {
+            fill.color = Color.green;
+        }
+        else if(percentBarLife >= 0.3f)
+        {
+            fill.color = Color.yellow;
+        }
+        else
+        {
+            fill.color = Color.red;
+        }
     }
 }

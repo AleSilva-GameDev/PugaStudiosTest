@@ -93,7 +93,7 @@ MonoBehaviour:
   orbitSpeed: 50
   myShip: {fileID: 11428056}
   cannonLocalSpawn: {fileID: 164830}
-  bullet: 0
+  bullet: 1
   status:
   - droneDamage: 1
     shootForSeconds: 2
@@ -2239,6 +2239,7 @@ MonoBehaviour:
   - droneDamage: 0
     shootForSeconds: 3
   level: 1
+  enemys: []
 --- !u!135 &13505572
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8003,7 +8004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myType: 0
-  healthLevel: 1
+  healthLevel: 5
   attackLevel: 5
   speedLevel: 5
   maxHealth: 0
@@ -8042,8 +8043,8 @@ MonoBehaviour:
   delayInputTimeToRotateShield: 0.3
   shootForSeconds: 6
   bullet: 0
-  mySecondaryCannonType: 3
-  myDroneType: 3
+  mySecondaryCannonType: 0
+  myDroneType: 2
   mana:
   - ManaTotal: 3
   - ManaTotal: 4

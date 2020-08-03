@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 6b0aa2635f3f73c43891c0a9ed979163, type: 3}
   name: Drone Healer
-  description: Heals your ship from time to time
+  description: Heals your ship from time to time.

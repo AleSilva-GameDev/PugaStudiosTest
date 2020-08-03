@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: b154e309fb570c540b9992c7484f9bcc, type: 3}
   name: Drone Rocket
-  description: Shoot missiles from time to time
+  description: Shoot missiles from time to time. Bullets pass through.

@@ -49,8 +49,10 @@ public class RocketBulletBehavior : Bullet
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.GetComponent<Status>());
         if (other.GetComponent<Status>())
         {
+            Debug.Log("Passei aqui");
             if (other.GetComponent<Status>().myType != originType)
             {
                 CheckAllTargets();
@@ -62,6 +64,10 @@ public class RocketBulletBehavior : Bullet
             {
                 CheckAllTargets();
             }
+        }
+        else if (other.GetComponent<EnemysBehavior>() && originType == ShipType.HERO)
+        {
+            other.GetComponent<EnemysBehavior>().TakeDamage((int)this.damage);
         }
     }
 

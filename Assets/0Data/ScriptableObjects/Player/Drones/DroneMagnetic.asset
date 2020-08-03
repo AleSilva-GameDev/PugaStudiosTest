@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 7fa06d6612dbb9a4ab0bbfdfe5b55727, type: 3}
   name: Drone Magnetic
-  description: Pull the coins that are nearby
+  description: Pull the coins that are nearby.

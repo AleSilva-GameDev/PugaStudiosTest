@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: d895c6ffae873214ab1b1607f2f545a5, type: 3}
   name: Drone Attack
-  description: Attacks the nearest enemies
+  description: Attacks the nearest enemies.

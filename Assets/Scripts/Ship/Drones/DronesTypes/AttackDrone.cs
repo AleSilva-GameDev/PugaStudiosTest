@@ -14,7 +14,7 @@ public class AttackDrone : DroneBehavior
 
     [Header("Behaviour")]
     GameObject target;
-    List<GameObject> enemys;
+    [SerializeField] List<GameObject> enemys;
     float TimeToShoot;
     float currentTimeToShoot;
 
@@ -35,6 +35,7 @@ public class AttackDrone : DroneBehavior
 
     void UpdateTarget()
     {
+        Debug.Log(enemys.Count);
         if (enemys.Count > 0)
         {
             List<GameObject> EnemysToRemove = new List<GameObject>();
