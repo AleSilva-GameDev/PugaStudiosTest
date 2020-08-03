@@ -8,6 +8,7 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] Text textTotalCurrencies;
     [SerializeField] GameObject panelChooseCharacter;
+    [SerializeField] GameObject panelDeleteSave;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,18 @@ public class MenuManager : MonoBehaviour
     public void GoToGame()
     {
         SceneManager.LoadScene("SceneGame");
+    }
+
+    public void ActivePanelDeleteSave(bool activePanel)
+    {
+        panelDeleteSave.SetActive(activePanel);
+    }
+
+    public void DeleteSave()
+    {
+        PlayerPrefs.DeleteKey("TotalCurrencies");
+        textTotalCurrencies.text = "Total Coins: " + PlayerPrefs.GetInt("TotalCurrencies");
+        panelDeleteSave.SetActive(false);
     }
 
     public void ExitGame()

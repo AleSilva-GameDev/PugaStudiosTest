@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
+        Debug.Log("Passei aqui");
         //Salvar o total de moedas
         PlayerPrefs.SetInt("TotalCurrencies", CurrencyManager.Instance.totalCurrencys + PlayerPrefs.GetInt("TotalCurrencies"));
 
